@@ -8,3 +8,13 @@ L:\C#\NotePad Project\NotePad Project\obj\Debug\NotePad Project.csproj.GenerateR
 L:\C#\NotePad Project\NotePad Project\obj\Debug\NotePad Project.csproj.CoreCompileInputs.cache
 L:\C#\NotePad Project\NotePad Project\obj\Debug\NotePad Project.exe
 L:\C#\NotePad Project\NotePad Project\obj\Debug\NotePad Project.pdb
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad Project.csprojAssemblyReference.cache
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad_Project.Form1.resources
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad_Project.Properties.Resources.resources
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad Project.csproj.GenerateResource.cache
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad Project.csproj.CoreCompileInputs.cache
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad Project.exe
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad Project.pdb
+L:\C#\NotePadProject\NotePad Project\bin\Debug\NotePad Project.exe.config
+L:\C#\NotePadProject\NotePad Project\bin\Debug\NotePad Project.exe
+L:\C#\NotePadProject\NotePad Project\bin\Debug\NotePad Project.pdb

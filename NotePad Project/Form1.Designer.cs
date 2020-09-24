@@ -258,15 +258,17 @@
             // 
             this.searchWithChromeToolStripMenuItem.Name = "searchWithChromeToolStripMenuItem";
             this.searchWithChromeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.searchWithChromeToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.searchWithChromeToolStripMenuItem.Text = "Search with Chrome";
+            this.searchWithChromeToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.searchWithChromeToolStripMenuItem.Text = "Search with Bing";
+            this.searchWithChromeToolStripMenuItem.Click += new System.EventHandler(this.searchWithChromeToolStripMenuItem_Click);
             // 
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.findToolStripMenuItem.Text = "Find...";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // findTextToolStripMenuItem
             // 
@@ -307,6 +309,7 @@
             this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
             // timeDateToolStripMenuItem
             // 
@@ -331,13 +334,13 @@
             this.fToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fToolStripMenuItem.Name = "fToolStripMenuItem";
             this.fToolStripMenuItem.ShowShortcutKeys = false;
-            this.fToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.fToolStripMenuItem.Text = "Word Wrap";
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.fontToolStripMenuItem.Text = "Font...";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -53,7 +54,23 @@ namespace NotePad_Project
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TextBox.D
+            TextBox.SelectedText = "";
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextBox.SelectAll();
+        }
+
+        private void searchWithChromeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string search = "https://www.bing.com/search?q=" + TextBox.SelectedText;
+           Process.Start("chrome.exe",search);
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
