@@ -21,7 +21,11 @@ namespace NotePad_Project
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FontDialog fd = new FontDialog();
+            
+            fd.ShowEffects = true;
+            fd.ShowDialog();
+            TextBox.Font = fd.Font;
         }
 
         private void richTextBox1_SelectionChanged(object sender, EventArgs e)
@@ -71,6 +75,20 @@ namespace NotePad_Project
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void WWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(WWToolStripMenuItem.Checked == false)
+            {
+                TextBox.WordWrap = false;
+                WWToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                TextBox.WordWrap = true;
+                WWToolStripMenuItem.Checked =  true;
+            }
         }
     }
 }
