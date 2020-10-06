@@ -18,3 +18,4 @@ L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad Project.pdb
 L:\C#\NotePadProject\NotePad Project\bin\Debug\NotePad Project.exe.config
 L:\C#\NotePadProject\NotePad Project\bin\Debug\NotePad Project.exe
 L:\C#\NotePadProject\NotePad Project\bin\Debug\NotePad Project.pdb
+L:\C#\NotePadProject\NotePad Project\obj\Debug\NotePad_Project.FormGoTo.resources

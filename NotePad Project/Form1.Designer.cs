@@ -72,14 +72,14 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutNotePadOfPTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextBox = new System.Windows.Forms.RichTextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusbar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.LnCol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Zoom = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sttZoom = new System.Windows.Forms.ToolStripStatusLabel();
             this.wininfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.fontinfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.statusbar.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -120,6 +120,7 @@
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // newWindowToolStripMenuItem
             // 
@@ -128,6 +129,7 @@
             | System.Windows.Forms.Keys.N)));
             this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.newWindowToolStripMenuItem.Text = "New Window";
+            this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -135,6 +137,7 @@
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.openToolStripMenuItem.Text = "Open...";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -142,6 +145,7 @@
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -150,6 +154,7 @@
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -161,6 +166,7 @@
             this.pageSetupToolStripMenuItem.Name = "pageSetupToolStripMenuItem";
             this.pageSetupToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.pageSetupToolStripMenuItem.Text = "Page Setup";
+            this.pageSetupToolStripMenuItem.Click += new System.EventHandler(this.pageSetupToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
@@ -168,6 +174,7 @@
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.printToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.printToolStripMenuItem.Text = "Print...";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -180,6 +187,7 @@
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -290,6 +298,7 @@
             this.replaceToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.replaceToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.replaceToolStripMenuItem.Text = "Replace...";
+            this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
             // goToToolStripMenuItem
             // 
@@ -297,6 +306,7 @@
             this.goToToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.goToToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.goToToolStripMenuItem.Text = "Go To...";
+            this.goToToolStripMenuItem.Click += new System.EventHandler(this.goToToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -317,6 +327,7 @@
             this.timeDateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.timeDateToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.timeDateToolStripMenuItem.Text = "Time/Date";
+            this.timeDateToolStripMenuItem.Click += new System.EventHandler(this.timeDateToolStripMenuItem_Click);
             // 
             // formatToolStripMenuItem
             // 
@@ -361,7 +372,7 @@
             this.zoomOutToolStripMenuItem,
             this.restoreDefaultZoomToolStripMenuItem});
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zoomToolStripMenuItem.Text = "Zoom";
             // 
             // zoomInToolStripMenuItem
@@ -370,6 +381,7 @@
             this.zoomInToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemplus)));
             this.zoomInToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.zoomInToolStripMenuItem.Text = "Zoom In";
+            this.zoomInToolStripMenuItem.Click += new System.EventHandler(this.zoomInToolStripMenuItem_Click);
             // 
             // zoomOutToolStripMenuItem
             // 
@@ -377,6 +389,7 @@
             this.zoomOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.OemMinus)));
             this.zoomOutToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.zoomOutToolStripMenuItem.Text = "Zoom Out";
+            this.zoomOutToolStripMenuItem.Click += new System.EventHandler(this.zoomOutToolStripMenuItem_Click);
             // 
             // restoreDefaultZoomToolStripMenuItem
             // 
@@ -391,8 +404,9 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.statusBarToolStripMenuItem.Text = "Status Bar";
+            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -442,20 +456,21 @@
             this.TextBox.TabIndex = 1;
             this.TextBox.Text = "";
             this.TextBox.SelectionChanged += new System.EventHandler(this.richTextBox1_SelectionChanged);
+            this.TextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // statusStrip1
+            // statusbar
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel5,
             this.LnCol,
-            this.Zoom,
+            this.sttZoom,
             this.wininfo,
             this.fontinfo});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 553);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(998, 24);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusbar.Location = new System.Drawing.Point(0, 553);
+            this.statusbar.Name = "statusbar";
+            this.statusbar.Size = new System.Drawing.Size(998, 24);
+            this.statusbar.TabIndex = 2;
+            this.statusbar.Text = "statusStrip1";
             // 
             // toolStripStatusLabel5
             // 
@@ -470,12 +485,12 @@
             this.LnCol.Size = new System.Drawing.Size(69, 19);
             this.LnCol.Text = "Ln 0 , Col 0";
             // 
-            // Zoom
+            // sttZoom
             // 
-            this.Zoom.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.Zoom.Name = "Zoom";
-            this.Zoom.Size = new System.Drawing.Size(39, 19);
-            this.Zoom.Text = "100%";
+            this.sttZoom.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.sttZoom.Name = "sttZoom";
+            this.sttZoom.Size = new System.Drawing.Size(39, 19);
+            this.sttZoom.Text = "100%";
             // 
             // wininfo
             // 
@@ -496,7 +511,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 577);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusbar);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -504,8 +519,8 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusbar.ResumeLayout(false);
+            this.statusbar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,10 +572,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem aboutNotePadOfPTSToolStripMenuItem;
         private System.Windows.Forms.RichTextBox TextBox;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusbar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripStatusLabel LnCol;
-        private System.Windows.Forms.ToolStripStatusLabel Zoom;
+        private System.Windows.Forms.ToolStripStatusLabel sttZoom;
         private System.Windows.Forms.ToolStripStatusLabel wininfo;
         private System.Windows.Forms.ToolStripStatusLabel fontinfo;
     }
