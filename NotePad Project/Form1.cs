@@ -119,9 +119,41 @@ namespace NotePad_Project
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string ss = this.Text;
-            if(ss[0] =='*')
+            DialogResult rs;
+            if (ss[0] =='*')
             {
-                MessageBox.Show("s");
+                if(!pathFileOpen.Equals(""))
+                {
+                    
+                    rs =  MessageBox.Show("Do you want to save changes to \n" + pathFileOpen, "Notification",MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    rs = MessageBox.Show("Do you want to save changes to \n" + FileName, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                }
+
+                if(rs == DialogResult.Yes && pathFileOpen.Equals(""))
+                {
+                    saveAsToolStripMenuItem_Click(sender, e);
+                }
+                else if(rs == DialogResult.Yes && !pathFileOpen.Equals(""))
+                {
+                    StreamWriter sw = new StreamWriter(pathFileOpen);
+                    sw.WriteLine(TextBox.Text);
+                    sw.Close();
+                    FileName = "UnTile.txt";
+                    pathFileOpen = "";
+                    this.Text = FileName + "- NotePad Fake";
+                    TextBox.Text = "";
+                }
+                else if(rs == DialogResult.No)
+                {
+                    FileName = "UnTile.txt";
+                    pathFileOpen = "";
+                    this.Text = FileName + "- NotePad Fake";
+                    TextBox.Text = "";
+                }
+                
             }
             else
             {
@@ -140,6 +172,44 @@ namespace NotePad_Project
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //DialogResult rs;
+            //string ss = this.Text;
+            //if (ss[0] == '*')
+            //{
+            //    if (!pathFileOpen.Equals(""))
+            //    {
+
+            //        rs = MessageBox.Show("Do you want to save changes to \n" + pathFileOpen, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            //    }
+            //    else
+            //    {
+            //        rs = MessageBox.Show("Do you want to save changes to \n" + FileName, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            //    }
+
+            //    if (rs == DialogResult.Yes && pathFileOpen.Equals(""))
+            //    {
+            //        saveAsToolStripMenuItem_Click(sender, e);
+            //    }
+            //    else if (rs == DialogResult.Yes && !pathFileOpen.Equals(""))
+            //    {
+            //        StreamWriter sw = new StreamWriter(pathFileOpen);
+            //        sw.WriteLine(TextBox.Text);
+            //        sw.Close();
+            //        this.Close();
+            //    }
+            //    else if (rs == DialogResult.Cancel)
+            //    {
+
+            //    }
+            //    else
+            //    {
+            //        this.Close();
+            //    }    
+            //}
+            //else
+            //{
+            //    this.Close();
+            //}
             this.Close();
         }
 
@@ -305,6 +375,44 @@ namespace NotePad_Project
                 TextBox.ZoomFactor = zoom - i;
             }
             sttZoom.Text = (TextBox.ZoomFactor * 100).ToString() + "%";
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult rs;
+            string ss = this.Text;
+            if (ss[0] == '*')
+            {
+                if (!pathFileOpen.Equals(""))
+                {
+
+                    rs = MessageBox.Show("Do you want to save changes to \n" + pathFileOpen, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    rs = MessageBox.Show("Do you want to save changes to \n" + FileName, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                }
+
+                if (rs == DialogResult.Yes && pathFileOpen.Equals(""))
+                {
+                    saveAsToolStripMenuItem_Click(sender, e);
+                }
+                else if (rs == DialogResult.Yes && !pathFileOpen.Equals(""))
+                {
+                    StreamWriter sw = new StreamWriter(pathFileOpen);
+                    sw.WriteLine(TextBox.Text);
+                    sw.Close();
+                    this.Close();
+                }
+                else if (rs == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }    
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }
