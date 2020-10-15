@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.searchWithChromeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findNextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findPreviousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -201,7 +202,7 @@
             this.toolStripSeparator4,
             this.searchWithChromeToolStripMenuItem,
             this.findToolStripMenuItem,
-            this.findTextToolStripMenuItem,
+            this.findNextToolStripMenuItem,
             this.findPreviousToolStripMenuItem,
             this.replaceToolStripMenuItem,
             this.goToToolStripMenuItem,
@@ -278,12 +279,13 @@
             this.findToolStripMenuItem.Text = "Find...";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
-            // findTextToolStripMenuItem
+            // findNextToolStripMenuItem
             // 
-            this.findTextToolStripMenuItem.Name = "findTextToolStripMenuItem";
-            this.findTextToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.findTextToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.findTextToolStripMenuItem.Text = "Find Text";
+            this.findNextToolStripMenuItem.Name = "findNextToolStripMenuItem";
+            this.findNextToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.findNextToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.findNextToolStripMenuItem.Text = "Find Next";
+            this.findNextToolStripMenuItem.Click += new System.EventHandler(this.findTextToolStripMenuItem_Click);
             // 
             // findPreviousToolStripMenuItem
             // 
@@ -291,6 +293,7 @@
             this.findPreviousToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
             this.findPreviousToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.findPreviousToolStripMenuItem.Text = "Find Previous";
+            this.findPreviousToolStripMenuItem.Click += new System.EventHandler(this.findPreviousToolStripMenuItem_Click);
             // 
             // replaceToolStripMenuItem
             // 
@@ -424,12 +427,14 @@
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
             this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.viewHelpToolStripMenuItem.Text = "View Help";
+            this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
             // 
             // sendFeedbackToolStripMenuItem
             // 
             this.sendFeedbackToolStripMenuItem.Name = "sendFeedbackToolStripMenuItem";
             this.sendFeedbackToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.sendFeedbackToolStripMenuItem.Text = "Send Feedback";
+            this.sendFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendFeedbackToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -441,6 +446,7 @@
             this.aboutNotePadOfPTSToolStripMenuItem.Name = "aboutNotePadOfPTSToolStripMenuItem";
             this.aboutNotePadOfPTSToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.aboutNotePadOfPTSToolStripMenuItem.Text = "About NotePad of PTS";
+            this.aboutNotePadOfPTSToolStripMenuItem.Click += new System.EventHandler(this.aboutNotePadOfPTSToolStripMenuItem_Click);
             // 
             // TextBox
             // 
@@ -450,6 +456,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBox.HideSelection = false;
             this.TextBox.Location = new System.Drawing.Point(0, 27);
             this.TextBox.Name = "TextBox";
             this.TextBox.Size = new System.Drawing.Size(998, 550);
@@ -514,6 +521,7 @@
             this.Controls.Add(this.statusbar);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -551,7 +559,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem searchWithChromeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findNextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findPreviousToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goToToolStripMenuItem;

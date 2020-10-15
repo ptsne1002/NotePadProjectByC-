@@ -18,18 +18,19 @@ namespace NotePad_Project
         int position = 0;
         string FileName = "";
         string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
+        string FoundText = "";
         private FormGoTo fGoTo  = new FormGoTo();
-
+        //int next = 0;
+        bool matchcase1;
+        bool wraparound1;
+        bool updown1;
         public Form1()
         {
             InitializeComponent();
             TextBox.EnableContextMenu();
             sttZoom.Text = (TextBox.ZoomFactor * 100).ToString() +"%" ;
+            
         }
-
-        
-
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FontDialog fd = new FontDialog();
@@ -85,7 +86,49 @@ namespace NotePad_Project
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FormFind find = new FormFind();
+            find.letFindText += Find_letFindText;
+            find.ShowDialog();
+
+
+        }
+
+        private void Find_letFindText(string Text, bool matchcase, bool wraparound, bool updown)
+        {
+            Find(TextBox, Text, matchcase, wraparound, updown);
+            FoundText = Text;
+            matchcase1 = matchcase;
+            wraparound1 = wraparound;
+            updown1 = updown;
+
+        }
+
+        void Find(RichTextBox richText, string text, bool matchCase, bool wraparound, bool updown)
+        {
+            RichTextBoxFinds options = RichTextBoxFinds.None;
+            if (matchCase)
+                options |= RichTextBoxFinds.MatchCase;
+            if (updown)
+                options |= RichTextBoxFinds.Reverse;
+
+            int index;
+            if (updown)
+                index = richText.Find(text, 0, richText.SelectionStart, options);
+            else
+                index = richText.Find(text, richText.SelectionStart + richText.SelectionLength, options);
+
+            if (index >= 0)
+            {
+                
+                richText.SelectionStart = index;
+                richText.SelectionLength = text.Length;
+            } 
+            else
+            {
+                MessageBox.Show("Cannot find \"" + text + "\"", "NotePad");
+            }
+
+
         }
 
         private void WWToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,44 +215,6 @@ namespace NotePad_Project
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //DialogResult rs;
-            //string ss = this.Text;
-            //if (ss[0] == '*')
-            //{
-            //    if (!pathFileOpen.Equals(""))
-            //    {
-
-            //        rs = MessageBox.Show("Do you want to save changes to \n" + pathFileOpen, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            //    }
-            //    else
-            //    {
-            //        rs = MessageBox.Show("Do you want to save changes to \n" + FileName, "Notification", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            //    }
-
-            //    if (rs == DialogResult.Yes && pathFileOpen.Equals(""))
-            //    {
-            //        saveAsToolStripMenuItem_Click(sender, e);
-            //    }
-            //    else if (rs == DialogResult.Yes && !pathFileOpen.Equals(""))
-            //    {
-            //        StreamWriter sw = new StreamWriter(pathFileOpen);
-            //        sw.WriteLine(TextBox.Text);
-            //        sw.Close();
-            //        this.Close();
-            //    }
-            //    else if (rs == DialogResult.Cancel)
-            //    {
-
-            //    }
-            //    else
-            //    {
-            //        this.Close();
-            //    }    
-            //}
-            //else
-            //{
-            //    this.Close();
-            //}
             this.Close();
         }
 
@@ -325,10 +330,48 @@ namespace NotePad_Project
             PrintDialog a = new PrintDialog();
             a.ShowDialog();
         }
-
+        
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormReplace fRP = new FormReplace();
+            fRP.letReplaceText += FRP_letReplaceText;
+            fRP.letFindTexttoReplace += FRP_letFindTexttoReplace; 
+            fRP.letReplaceAll += FRP_letReplaceAll;
+            fRP.ShowDialog();
+        }
+
+        private void FRP_letReplaceAll(string TextFind, string TextRePlace, bool matchcase, bool wraparound)
+        {
+            TextBox.Text = TextBox.Text.Replace(TextFind, TextRePlace);
+        }
+
+        int Index = 0;
+        private void FRP_letFindTexttoReplace(string TextFind, string TextRePlace, bool matchcase, bool wraparound)
+        {
+            // MessageBox.Show(Index.ToString());
             
+            int a = FindMyText(TextFind, Index, matchcase);
+            int maxlengt = TextBox.TextLength;
+            //MessageBox.Show(maxlengt.ToString());
+            if (a +TextFind.Length < maxlengt && a!= -1)
+            {
+                Index = a + TextFind.Length;
+               
+            }    
+            else
+            {
+                Index = 0;
+                a = FindMyText(TextFind, Index, matchcase);
+                if(a==-1)
+                {
+                    MessageBox.Show("Cannot find \"" + TextFind + "\"", "NotePad");
+                }
+            }
+        }
+
+        private void FRP_letReplaceText(string TextFind, string TextRePlace, bool matchcase, bool wraparound)
+        {
+            TextBox.SelectedText = TextRePlace;
         }
 
         private void goToToolStripMenuItem_Click(object sender, EventArgs e)
@@ -413,6 +456,60 @@ namespace NotePad_Project
             {
                 this.Close();
             }
+        }
+
+        private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string search = "https://www.messenger.com/t/pts1002";
+            Process.Start("chrome.exe", search);
+        }
+
+        private void sendFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string search = "https://www.messenger.com/t/pts1002";
+            Process.Start("chrome.exe", search);
+        }
+
+        private void aboutNotePadOfPTSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutNotePad about = new AboutNotePad();
+            about.ShowDialog();
+        }
+
+        private void findTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Find_letFindText(FoundText, matchcase1 ,wraparound1,false);
+        }
+
+        private void findPreviousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Find_letFindText(FoundText, matchcase1, wraparound1, true);
+        }
+
+        public int FindMyText(string text, int start, bool match)
+        {
+            RichTextBoxFinds option = RichTextBoxFinds.None;
+            if (match)
+            {
+                option |= RichTextBoxFinds.MatchCase;
+            }
+            else
+            {
+                option |= RichTextBoxFinds.None;
+            }
+                
+            int returnValue = -1;
+            returnValue = TextBox.Find(text, start, option);
+            if (text.Length > 0 && start >= 0)
+            {
+                int indexToText = TextBox.Find(text, start, option);
+                if (indexToText >= 0)
+                {
+                    returnValue = indexToText;
+                }
+            }
+
+            return returnValue;
         }
     }
 }
